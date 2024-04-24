@@ -10,4 +10,3 @@ namespace Mobile5;
 public partial class App : Application
 {
 }
-
