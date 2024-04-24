@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="Mobile5.Views.TransportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mobile5.Views"
+             xmlns:vm="clr-namespace:Mobile5.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    
+    <UserControl.DataContext>
+        <vm:TransportViewModel/>
+    </UserControl.DataContext>
+
+    <Grid ShowGridLines="True">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="TransportListView" Grid.Column="0" ItemsSource="{Binding Transports}" Foreground="Gray"  VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ListView.View>
+                <GridView>
+                    
+                    <GridViewColumn Header="ID" Width="25" DisplayMemberBinding="{Binding TransportId}"></GridViewColumn>
+                    <GridViewColumn Header="Айди работника" Width="120" DisplayMemberBinding="{Binding TransportId}"></GridViewColumn>
+                    <GridViewColumn Header="Айди компании" Width="120" DisplayMemberBinding="{Binding EmployeeId}"></GridViewColumn>
+                    <GridViewColumn Header="Айди города отправления" Width="120" DisplayMemberBinding="{Binding DepartureCity}"></GridViewColumn>
+                    <GridViewColumn Header="Айди города прибытия" Width="120" DisplayMemberBinding="{Binding ArrivalCity}"></GridViewColumn>
+                    <GridViewColumn Header="Тип заказа" Width="120" DisplayMemberBinding="{Binding TypeCargoId}"></GridViewColumn>
+                    <GridViewColumn Header="Вес" Width="120" DisplayMemberBinding="{Binding Weight}"></GridViewColumn>
+                    
+                    <GridViewColumn Header="Удалить" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Width="38" Height="15" Background="CornflowerBlue" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=TransportListView, Path=DataContext.DeleteTransportCommand}" CommandParameter="{Binding TransportId}"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Редактировать" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Width="38" Height="15" Background="GreenYellow" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=TransportListView, Path=DataContext.UseTransportCommand}" CommandParameter="{Binding TransportId}"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Column="1" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
+
+            <TextBlock Width="370" Height="40" Foreground="White" Text="Добавление в базу данных" TextAlignment="Center" FontSize="18"></TextBlock>
+
+           
+            
+            <Label Content="Айди работника" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.EmployeeId}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Айди компании" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.CompanyId}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Айди города отправления" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.DepartureCity}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Айди города прибытия" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.ArrivalCity}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Тип заказа" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.TypeCargoId}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Вес" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.Weight}" Width="250" Height="25"></TextBox>
+
+            <Button Width="150" Height="30" Margin="25" Content="Добавить" Command="{Binding AddTransportCommand}"></Button>
+
+        </StackPanel>
+
+        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
+
+            <TextBlock Width="370" Height="40" Foreground="White"  Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
+
+            
+            
+            <Label Content="Айди работника" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.EmployeeId}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Айди компании" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.CompanyId}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Айди города отправления" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.DepartureCity}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Айди города прибытия" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.ArrivalCity}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Тип заказа" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.TypeCargoId}" Width="250" Height="25"></TextBox>
+            
+            <Label Content="Вес" Margin=" 0 25 0 0"/>
+            <TextBox Text="{Binding newTransport.Weight}" Width="250" Height="25"></TextBox>
+
+            <Button Width="150" Height="30" Margin="25" Content="Изменить" Command="{Binding EditTransportCommand}" CommandParameter="{Binding editTransport.TransportId}"></Button>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
