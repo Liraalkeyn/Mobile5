@@ -71,7 +71,8 @@
             <TextBox Text="{Binding newEmployee.EMail}" Width="250" Height="25"></TextBox>
             
             <Label Content="Позиция" Margin=" 0 25 0 0"/>
-            <TextBox Text="{Binding newEmployee.PositionId}" Width="250" Height="25"></TextBox>
+            <ComboBox ItemsSource="{Binding positions}" DisplayMemberPath="PositionName"
+                      SelectedValue="{Binding newEmployee.PositionId}" SelectedValuePath="PositionId" Width="250" Height="25"></ComboBox>
 
             <Button Width="150" Height="30" Margin="25" Content="Добавить" Command="{Binding AddEmployeeCommand}"></Button>
 
@@ -99,7 +100,8 @@
             <TextBox Text="{Binding newEmployee.EMail}" Width="250" Height="25"></TextBox>
             
             <Label Content="Позиция" Margin=" 0 25 0 0"/>
-            <TextBox Text="{Binding newEmployee.PositionId}" Width="250" Height="25"></TextBox>
+            <ComboBox ItemsSource="{Binding Path=positions}" DisplayMemberPath="PositionName"
+                      SelectedValue="{Binding newEmployee.PositionId}" SelectedValuePath="PositionId" Width="250" Height="25"></ComboBox>
 
             <Button Width="150" Height="30" Margin="25" Content="Изменить" Command="{Binding EditEmployeeCommand}" CommandParameter="{Binding editEmployee.EmployeeId}"></Button>
 

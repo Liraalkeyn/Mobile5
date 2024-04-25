@@ -10,41 +10,42 @@ using Mobile5.Models;
 
 namespace Mobile5.ViewModels
 {
-    public class TransportViewModel : INotifyPropertyChanged // Наш класс моделек.
+    public class TransportViewModel : INotifyPropertyChanged 
     {
-        public event PropertyChangedEventHandler? PropertyChanged; // Создаем ивент.
+        public event PropertyChangedEventHandler? PropertyChanged; 
 
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "") // Функция вызова ивента.
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "") 
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private IEnumerable<Transport> _Transports; // Приватную переменную _workers (для внутренних преобразований).
-        public IEnumerable<Transport> Transports // Публичную переменную workers (для внешних преобразований).
+        private IEnumerable<Transport> _Transports; 
+        public IEnumerable<Transport> Transports 
         {
             get { return _Transports; }
-            set { _Transports = value; OnPropertyChanged(); } // Присваиваем внутренней переменной значение и вызываем ивент.
+            set { _Transports = value; OnPropertyChanged(); } 
         }
+        
 
-        private void GetTransport() // Присваиваем внешней переменной значение и преобразуем ее в лист.
+        private void GetTransport() 
         {
             using (var context = new Rchtest1Context()) { Transports = context.Transports.ToList(); }
         }
 
-        public TransportViewModel() // Вызываем наши функции. 
+        public TransportViewModel() 
         {
             newTransport = new Transport();
             GetTransport();
         }
 
-        private Transport _newTransport; // Приватную переменную _newUser (для внутренних преобразований).
-        public Transport newTransport // Публичную переменную newUser (для внешних преобразований).
+        private Transport _newTransport; 
+        public Transport newTransport 
         {
             get { return _newTransport; }
-            set { _newTransport = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _newTransport = value; OnPropertyChanged(); } 
         }
 
-        public DelegateCommand AddTransportCommand // Создаем команду для добавления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand AddTransportCommand 
         {
             get
             {
@@ -55,7 +56,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void AddTransport() // Функция добавления пользователя.
+        private void AddTransport() 
         {
             using (var context = new Rchtest1Context())
             {
@@ -66,7 +67,7 @@ namespace Mobile5.ViewModels
             newTransport = new Transport();
         }
 
-        private void DeleteTransport(int TransportId) // Функция удаления пользователя.
+        private void DeleteTransport(int TransportId) 
         {
             using (var context = new Rchtest1Context())
             {
@@ -77,7 +78,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand DeleteTransportCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand DeleteTransportCommand 
         {
             get
             {
@@ -88,11 +89,11 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private Transport _editTransport; // Приватную переменную _newUser (для внутренних преобразований).
-        public Transport editTransport // Публичную переменную newUser (для внешних преобразований).
+        private Transport _editTransport; 
+        public Transport editTransport 
         {
             get { return _editTransport; }
-            set { _editTransport = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _editTransport = value; OnPropertyChanged(); } 
         }
         private void UseTransport(int TransportId)
         {
@@ -102,7 +103,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand UseTransportCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand UseTransportCommand 
         {
             get
             {
@@ -113,7 +114,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void EditTransport(int TransportId) // Функция удаления пользователя.
+        private void EditTransport(int TransportId) 
         {
             using (var context = new Rchtest1Context())
             {
@@ -123,7 +124,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand EditTransportCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand EditTransportCommand 
         {
             get
             {
