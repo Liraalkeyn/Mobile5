@@ -24,7 +24,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="25" DisplayMemberBinding="{Binding PositionId}"></GridViewColumn>
-                    <GridViewColumn Header="Логин" Width="120" DisplayMemberBinding="{Binding PositionName}"></GridViewColumn>
+                    <GridViewColumn Header="Имя" Width="120" DisplayMemberBinding="{Binding PositionName}"></GridViewColumn>
                     <GridViewColumn Header="Удалить" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

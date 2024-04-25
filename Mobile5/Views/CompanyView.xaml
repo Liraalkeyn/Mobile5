@@ -24,7 +24,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="25" DisplayMemberBinding="{Binding CompanyId}"></GridViewColumn>
-                    <GridViewColumn Header="Логин" Width="120" DisplayMemberBinding="{Binding CompanyName}"></GridViewColumn>
+                    <GridViewColumn Header="Имя" Width="120" DisplayMemberBinding="{Binding CompanyName}"></GridViewColumn>
                     <GridViewColumn Header="Удалить" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -35,7 +35,7 @@
                     <GridViewColumn Header="Редактировать" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="GreenYellow" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=CompanyListView, Path=DataContext.UseCompanyCommand}" CommandParameter="{Binding CompanyId}"></Button>
+                                <Button Width="38" Height="15" Background="GreenYellow" Command="{Binding ElementName=CompanyListView, Path=DataContext.UseCompanyCommand}" CommandParameter="{Binding CompanyId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
