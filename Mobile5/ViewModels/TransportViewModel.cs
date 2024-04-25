@@ -26,15 +26,68 @@ namespace Mobile5.ViewModels
             set { _Transports = value; OnPropertyChanged(); } 
         }
         
+        
+        private List<Employee> _employeeIds;
+
+        public List<Employee> employeeIds
+        {
+            get { return _employeeIds; }
+            set
+            {
+                _employeeIds = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        private List<Company> _companies;
+
+        public List<Company> companies
+        {
+            get { return _companies; }
+            set
+            {
+                _companies = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        private List<City> _cities;
+
+        public List<City> cities
+        {
+            get { return _cities; }
+            set
+            {
+                _cities = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        
+        private List<TypeCargo> _typeCargos;
+
+        public List<TypeCargo> typeCargos
+        {
+            get { return _typeCargos; }
+            set
+            {
+                _typeCargos = value;
+                OnPropertyChanged();
+            }
+        }
 
         private void GetTransport() 
         {
             using (var context = new Rchtest1Context()) { Transports = context.Transports.ToList(); }
         }
 
-        public TransportViewModel() 
+        public TransportViewModel()
         {
             newTransport = new Transport();
+            using (var context = new Rchtest1Context()) { employeeIds = context.Employees.ToList(); }
+            using (var context = new Rchtest1Context()) { companies = context.Companies.ToList(); }
+            using (var context = new Rchtest1Context()) { cities = context.Cities.ToList(); }
+            using (var context = new Rchtest1Context()) { typeCargos = context.TypeCargos.ToList(); }
             GetTransport();
         }
 
