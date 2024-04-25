@@ -6,16 +6,16 @@
              xmlns:local="clr-namespace:Mobile5.Views"
              xmlns:vm="clr-namespace:Mobile5.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920">
+             d:DesignHeight="779" d:DesignWidth="779">
     
     <UserControl.DataContext>
         <vm:TransportViewModel/>
     </UserControl.DataContext>
 
-    <Grid ShowGridLines="True">
+    <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -35,14 +35,14 @@
                     <GridViewColumn Header="Удалить" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="CornflowerBlue" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=TransportListView, Path=DataContext.DeleteTransportCommand}" CommandParameter="{Binding TransportId}"></Button>
+                                <Button Width="38" Height="15" Background="CornflowerBlue" Command="{Binding ElementName=TransportListView, Path=DataContext.DeleteTransportCommand}" CommandParameter="{Binding TransportId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Редактировать" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="GreenYellow" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=TransportListView, Path=DataContext.UseTransportCommand}" CommandParameter="{Binding TransportId}"></Button>
+                                <Button Width="38" Height="15" Background="GreenYellow" Command="{Binding ElementName=TransportListView, Path=DataContext.UseTransportCommand}" CommandParameter="{Binding TransportId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -50,7 +50,7 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Grid.Column="1" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
+        <StackPanel Grid.Column="1" Width="370" Height="580" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
 
             <TextBlock Width="370" Height="40" Foreground="White" Text="Добавление в базу данных" TextAlignment="Center" FontSize="18"></TextBlock>
 
@@ -74,11 +74,11 @@
             <Label Content="Вес" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newTransport.Weight}" Width="250" Height="25"></TextBox>
 
-            <Button Width="150" Height="30" Margin="25" Content="Добавить" Command="{Binding AddTransportCommand}"></Button>
+            <Button Width="150" Height="30" Margin="25" Background="White" Content="Создать" Command="{Binding AddTransportCommand}"></Button>
 
         </StackPanel>
 
-        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
+        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="580" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
 
             <TextBlock Width="370" Height="40" Foreground="White"  Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
 
@@ -102,7 +102,7 @@
             <Label Content="Вес" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newTransport.Weight}" Width="250" Height="25"></TextBox>
 
-            <Button Width="150" Height="30" Margin="25" Content="Изменить" Command="{Binding EditTransportCommand}" CommandParameter="{Binding editTransport.TransportId}"></Button>
+            <Button Width="150" Height="30" Margin="25" Background="White" Content="Редактировать" Command="{Binding EditTransportCommand}" CommandParameter="{Binding editTransport.TransportId}"></Button>
 
         </StackPanel>
 

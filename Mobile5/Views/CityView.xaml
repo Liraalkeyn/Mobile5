@@ -6,16 +6,16 @@
              xmlns:local="clr-namespace:Mobile5.Views"
              xmlns:vm="clr-namespace:Mobile5.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920">
+             d:DesignHeight="779" d:DesignWidth="1529">
     
     <UserControl.DataContext>
         <vm:CityViewModel/>
     </UserControl.DataContext>
 
-    <Grid ShowGridLines="True">
+    <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -28,14 +28,14 @@
                     <GridViewColumn Header="Удалить" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="Red" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=CityListView, Path=DataContext.DeleteCityCommand}" CommandParameter="{Binding CityId}"></Button>
+                                <Button Width="38" Height="15" Background="CornflowerBlue" Command="{Binding ElementName=CityListView, Path=DataContext.DeleteCityCommand}" CommandParameter="{Binding CityId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Редактировать" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="Orange" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=CityListView, Path=DataContext.UseCityCommand}" CommandParameter="{Binding CityId}"></Button>
+                                <Button Width="38" Height="15" Background="GreenYellow" Command="{Binding ElementName=CityListView, Path=DataContext.UseCityCommand}" CommandParameter="{Binding CityId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -43,25 +43,25 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Grid.Column="1" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#CFCFEF">
+        <StackPanel Grid.Column="1" Width="370" Height="199" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
 
-            <TextBlock Width="370" Height="40" Foreground="#F5F5F5" Background="#9595DC" Text="Добавление в базу данных" TextAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Width="370" Height="40" Foreground="White"  Text="Добавление в базу данных" TextAlignment="Center" FontSize="18"></TextBlock>
 
-            <Label Content="Логин" Margin=" 0 25 0 0"/>
+            <Label Content="Имя" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newCity.CityName}" Width="250" Height="25"></TextBox>
 
-            <Button Width="150" Height="30" Margin="25" Content="Добавить" Command="{Binding AddCityCommand}"></Button>
+            <Button Width="150" Height="30" Margin="25" Background="White" Content="Создать" Command="{Binding AddCityCommand}"></Button>
 
         </StackPanel>
 
-        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#CFCFEF">
+        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="198" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
 
-            <TextBlock Width="370" Height="40" Foreground="#F5F5F5" Background="#9595DC" Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Width="370" Height="40" Foreground="#F5F5F5" Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
 
-            <Label Content="Логин" Margin=" 0 25 0 0"/>
+            <Label Content="Имя" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding editCity.CityName}" Width="250" Height="25"></TextBox>
 
-            <Button Width="150" Height="30" Margin="25" Content="Изменить" Command="{Binding EditCityCommand}" CommandParameter="{Binding editCity.CityId}"></Button>
+            <Button Width="150" Height="30" Margin="25" Background="White" Content="Редактировать" Command="{Binding EditCityCommand}" CommandParameter="{Binding editCity.CityId}"></Button>
 
         </StackPanel>
 

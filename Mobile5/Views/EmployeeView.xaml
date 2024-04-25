@@ -6,16 +6,16 @@
              xmlns:local="clr-namespace:Mobile5.Views"
              xmlns:vm="clr-namespace:Mobile5.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920">
-    
+             d:DesignHeight="779" d:DesignWidth="1529">
+
     <UserControl.DataContext>
         <vm:EmployeeViewModel/>
     </UserControl.DataContext>
 
-    <Grid ShowGridLines="True">
+    <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -30,18 +30,18 @@
                     <GridViewColumn Header="Номер телефона" Width="25" DisplayMemberBinding="{Binding TelephoneNumber}"></GridViewColumn>
                     <GridViewColumn Header="Почта" Width="25" DisplayMemberBinding="{Binding EMail}"></GridViewColumn>
                     <GridViewColumn Header="Позиция" Width="25" DisplayMemberBinding="{Binding PositionId}"></GridViewColumn>
-                    
+
                     <GridViewColumn Header="Удалить" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="CornflowerBlue" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=EmployeeListView, Path=DataContext.DeleteEmployeeCommand}" CommandParameter="{Binding EmployeeId}"></Button>
+                                <Button Width="38" Height="15" Background="CornflowerBlue" Command="{Binding ElementName=EmployeeListView, Path=DataContext.DeleteEmployeeCommand}" CommandParameter="{Binding EmployeeId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Редактировать" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="GreenYellow" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=EmployeeListView, Path=DataContext.UseEmployeeCommand}" CommandParameter="{Binding EmployeeId}"></Button>
+                                <Button Width="38" Height="15" Background="GreenYellow" Command="{Binding ElementName=EmployeeListView, Path=DataContext.UseEmployeeCommand}" CommandParameter="{Binding EmployeeId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -49,61 +49,61 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Grid.Column="1" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#CFCFEF">
+        <StackPanel Grid.Column="1" Width="370" Height="626" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
 
-            <TextBlock Width="370" Height="40" Foreground="#F5F5F5" Background="#9595DC" Text="Добавление в базу данных" TextAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Width="370" Height="40" Foreground="white"  Text="Добавление в базу данных" TextAlignment="Center" FontSize="18"></TextBlock>
 
-            
-            
+
+
             <Label Content="Имя" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.Name}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Фамилия" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.LastName}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Отчество" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.Patronimyc}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Номер телефона" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.TelephoneNumber}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Почта" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.EMail}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Позиция" Margin=" 0 25 0 0"/>
             <ComboBox ItemsSource="{Binding positions}" DisplayMemberPath="PositionName"
                       SelectedValue="{Binding newEmployee.PositionId}" SelectedValuePath="PositionId" Width="250" Height="25"></ComboBox>
 
-            <Button Width="150" Height="30" Margin="25" Content="Добавить" Command="{Binding AddEmployeeCommand}"></Button>
+            <Button Width="150" Height="30" Margin="25" Background="White" Content="Создать" Command="{Binding AddEmployeeCommand}"></Button>
 
         </StackPanel>
 
-        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#CFCFEF">
+        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="622" VerticalAlignment="Top" HorizontalAlignment="Center" Background="Orange" Margin="0,76,0,0">
 
-            <TextBlock Width="370" Height="40" Foreground="#F5F5F5" Background="#9595DC" Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Width="370" Height="40" Foreground="white"  Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
 
-            
-            
+
+
             <Label Content="Имя" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.Name}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Фамилия" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.LastName}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Отчество" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.Patronimyc}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Номер телефона" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.TelephoneNumber}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Почта" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newEmployee.EMail}" Width="250" Height="25"></TextBox>
-            
+
             <Label Content="Позиция" Margin=" 0 25 0 0"/>
             <ComboBox ItemsSource="{Binding Path=positions}" DisplayMemberPath="PositionName"
                       SelectedValue="{Binding newEmployee.PositionId}" SelectedValuePath="PositionId" Width="250" Height="25"></ComboBox>
 
-            <Button Width="150" Height="30" Margin="25" Content="Изменить" Command="{Binding EditEmployeeCommand}" CommandParameter="{Binding editEmployee.EmployeeId}"></Button>
+            <Button Width="150" Height="30" Margin="25" Background="White" Content="Редактировать" Command="{Binding EditEmployeeCommand}" CommandParameter="{Binding editEmployee.EmployeeId}"></Button>
 
         </StackPanel>
 

@@ -12,10 +12,10 @@
         <vm:TypeCargoViewModel/>
     </UserControl.DataContext>
 
-    <Grid ShowGridLines="True">
+    <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -28,14 +28,14 @@
                     <GridViewColumn Header="Удалить" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="Red" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=TypeCargoListView, Path=DataContext.DeleteTypeCargoCommand}" CommandParameter="{Binding TypeCargoId}"></Button>
+                                <Button Width="38" Height="15" Background="CornflowerBlue" Command="{Binding ElementName=TypeCargoListView, Path=DataContext.DeleteTypeCargoCommand}" CommandParameter="{Binding TypeCargoId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Редактировать" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="38" Height="15" Background="Orange" BorderBrush="Black" BorderThickness="1.5" Command="{Binding ElementName=TypeCargoListView, Path=DataContext.UseTypeCargoCommand}" CommandParameter="{Binding TypeCargoId}"></Button>
+                                <Button Width="38" Height="15" Background="GreenYellow" Command="{Binding ElementName=TypeCargoListView, Path=DataContext.UseTypeCargoCommand}" CommandParameter="{Binding TypeCargoId}"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -43,25 +43,25 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Grid.Column="1" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#CFCFEF">
+        <StackPanel Grid.Column="1" Width="370" Height="191" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange">
 
-            <TextBlock Width="370" Height="40" Foreground="#F5F5F5" Background="#9595DC" Text="Добавление в базу данных" TextAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Width="370" Height="40" Foreground="White" Text="Добавление в базу данных" TextAlignment="Center" FontSize="18"></TextBlock>
 
-            <Label Content="Логин" Margin=" 0 25 0 0"/>
+            <Label Content="Имя" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding newTypeCargo.TypeCargoName}" Width="250" Height="25"></TextBox>
 
-            <Button Width="150" Height="30" Margin="25" Content="Добавить" Command="{Binding AddTypeCargoCommand}"></Button>
+            <Button Width="150" Height="30" Margin="25" Background="White" Content="Создать" Command="{Binding AddTypeCargoCommand}"></Button>
 
         </StackPanel>
 
-        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="545" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#CFCFEF">
+        <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="191" VerticalAlignment="Center" HorizontalAlignment="Center" Background="orange">
 
-            <TextBlock Width="370" Height="40" Foreground="#F5F5F5" Background="#9595DC" Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Width="370" Height="40" Foreground="white" Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
 
-            <Label Content="Логин" Margin=" 0 25 0 0"/>
+            <Label Content="Имя" Margin=" 0 25 0 0"/>
             <TextBox Text="{Binding editTypeCargo.TypeCargoName}" Width="250" Height="25"></TextBox>
 
-            <Button Width="150" Height="30" Margin="25" Content="Изменить" Command="{Binding EditTypeCargoCommand}" CommandParameter="{Binding editTypeCargo.TypeCargoId}"></Button>
+            <Button Width="150" Height="30" Margin="25" Background="White" Content="Редактировать" Command="{Binding EditTypeCargoCommand}" CommandParameter="{Binding editTypeCargo.TypeCargoId}"></Button>
 
         </StackPanel>
 
