@@ -81,27 +81,25 @@
         <StackPanel x:Name="Edit" Grid.Column="2" Width="370" Height="622" VerticalAlignment="Top" HorizontalAlignment="Center" Background="Orange" Margin="0,76,0,0">
 
             <TextBlock Width="370" Height="40" Foreground="white"  Text="Редактирование данных" TextAlignment="Center" FontSize="18"></TextBlock>
-
-
-
+            
             <Label Content="Имя" Margin=" 0 25 0 0"/>
-            <TextBox Text="{Binding newEmployee.Name}" Width="250" Height="25"></TextBox>
+            <TextBox Text="{Binding editEmployee.Name}" Width="250" Height="25"></TextBox>
 
             <Label Content="Фамилия" Margin=" 0 25 0 0"/>
-            <TextBox Text="{Binding newEmployee.LastName}" Width="250" Height="25"></TextBox>
+            <TextBox Text="{Binding editEmployee.LastName}" Width="250" Height="25"></TextBox>
 
             <Label Content="Отчество" Margin=" 0 25 0 0"/>
-            <TextBox Text="{Binding newEmployee.Patronimyc}" Width="250" Height="25"></TextBox>
+            <TextBox Text="{Binding editEmployee.Patronimyc}" Width="250" Height="25"></TextBox>
 
             <Label Content="Номер телефона" Margin=" 0 25 0 0"/>
-            <TextBox Text="{Binding newEmployee.TelephoneNumber}" Width="250" Height="25"></TextBox>
+            <TextBox Text="{Binding editEmployee.TelephoneNumber}" Width="250" Height="25"></TextBox>
 
             <Label Content="Почта" Margin=" 0 25 0 0"/>
-            <TextBox Text="{Binding newEmployee.EMail}" Width="250" Height="25"></TextBox>
+            <TextBox Text="{Binding editEmployee.EMail}" Width="250" Height="25"></TextBox>
 
             <Label Content="Позиция" Margin=" 0 25 0 0"/>
             <ComboBox ItemsSource="{Binding Path=positions}" DisplayMemberPath="PositionName"
-                      SelectedValue="{Binding newEmployee.PositionId}" SelectedValuePath="PositionId" Width="250" Height="25"></ComboBox>
+                      SelectedValue="{Binding editEmployee.PositionId}" SelectedValuePath="PositionId" Width="250" Height="25"></ComboBox>
 
             <Button Width="150" Height="30" Margin="25" Background="White" Content="Редактировать" Command="{Binding EditEmployeeCommand}" CommandParameter="{Binding editEmployee.EmployeeId}"></Button>
 

@@ -88,26 +88,26 @@
             
             <Label Content="Айди работника" Margin=" 0 25 0 0"/>
             <ComboBox ItemsSource="{Binding employeeIds}" DisplayMemberPath="EmployeeId"
-                      SelectedValue="{Binding newTransport.EmployeeId}" SelectedValuePath="EmployeeId" Width="250" Height="25"></ComboBox>
+                      SelectedValue="{Binding editTransport.EmployeeId}" SelectedValuePath="EmployeeId" Width="250" Height="25"></ComboBox>
             
             <Label Content="Название компании" Margin=" 0 25 0 0"/>
             <ComboBox ItemsSource="{Binding companies}" DisplayMemberPath="CompanyName"
-                      SelectedValue="{Binding newTransport.CompanyId}" SelectedValuePath="CompanyId" Width="250" Height="25"></ComboBox>
+                      SelectedValue="{Binding editTransport.CompanyId}" SelectedValuePath="CompanyId" Width="250" Height="25"></ComboBox>
             
             <Label Content="Город отправления" Margin=" 0 25 0 0"/>
             <ComboBox ItemsSource="{Binding cities}" DisplayMemberPath="CityName"
-                      SelectedValue="{Binding newTransport.DepartureCity}" SelectedValuePath="CityId" Width="250" Height="25"></ComboBox>
+                      SelectedValue="{Binding editTransport.DepartureCity}" SelectedValuePath="CityId" Width="250" Height="25"></ComboBox>
             
             <Label Content="Город прибытия" Margin=" 0 25 0 0"/>
             <ComboBox ItemsSource="{Binding cities}" DisplayMemberPath="CityName"
-                      SelectedValue="{Binding newTransport.ArrivalCity}" SelectedValuePath="CityId" Width="250" Height="25"></ComboBox>
+                      SelectedValue="{Binding editTransport.ArrivalCity}" SelectedValuePath="CityId" Width="250" Height="25"></ComboBox>
             
             <Label Content="Тип заказа" Margin=" 0 25 0 0"/>
             <ComboBox ItemsSource="{Binding typeCargos}" DisplayMemberPath="TypeCargoName"
-                      SelectedValue="{Binding newTransport.TypeCargoId}" SelectedValuePath="TypeCargoId" Width="250" Height="25"></ComboBox>
+                      SelectedValue="{Binding editTransport.TypeCargoId}" SelectedValuePath="TypeCargoId" Width="250" Height="25"></ComboBox>
             
             <Label Content="Вес" Margin=" 0 25 0 0"/>
-            <TextBox Text="{Binding newTransport.Weight}" Width="250" Height="25"></TextBox>
+            <TextBox Text="{Binding editTransport.Weight}" Width="250" Height="25"></TextBox>
 
             <Button Width="150" Height="30" Margin="25" Background="White" Content="Редактировать" Command="{Binding EditTransportCommand}" CommandParameter="{Binding editTransport.TransportId}"></Button>
 
