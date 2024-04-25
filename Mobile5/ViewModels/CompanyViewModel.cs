@@ -10,41 +10,41 @@ using Mobile5.Models;
 
 namespace Mobile5.ViewModels
 {
-    public class CompanyViewModel : INotifyPropertyChanged // Наш класс моделек.
+    public class CompanyViewModel : INotifyPropertyChanged 
     {
-        public event PropertyChangedEventHandler? PropertyChanged; // Создаем ивент.
+        public event PropertyChangedEventHandler? PropertyChanged; 
 
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "") // Функция вызова ивента.
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "") 
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private IEnumerable<Company> _Companies; // Приватную переменную _workers (для внутренних преобразований).
-        public IEnumerable<Company> Companies // Публичную переменную workers (для внешних преобразований).
+        private IEnumerable<Company> _Companies;
+        public IEnumerable<Company> Companies 
         {
             get { return _Companies; }
-            set { _Companies = value; OnPropertyChanged(); } // Присваиваем внутренней переменной значение и вызываем ивент.
+            set { _Companies = value; OnPropertyChanged(); } 
         }
 
-        private void GetCompany() // Присваиваем внешней переменной значение и преобразуем ее в лист.
+        private void GetCompany()
         {
             using (var context = new Rchtest1Context()) { Companies = context.Companies.ToList(); }
         }
 
-        public CompanyViewModel() // Вызываем наши функции. 
+        public CompanyViewModel() 
         {
             newCompany = new Company();
             GetCompany();
         }
 
-        private Company _newCompany; // Приватную переменную _newUser (для внутренних преобразований).
-        public Company newCompany // Публичную переменную newUser (для внешних преобразований).
+        private Company _newCompany; 
+        public Company newCompany 
         {
             get { return _newCompany; }
-            set { _newCompany = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _newCompany = value; OnPropertyChanged(); }
         }
 
-        public DelegateCommand AddCompanyCommand // Создаем команду для добавления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand AddCompanyCommand
         {
             get
             {
@@ -55,7 +55,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void AddCompany() // Функция добавления пользователя.
+        private void AddCompany()
         {
             using (var context = new Rchtest1Context())
             {
@@ -66,7 +66,7 @@ namespace Mobile5.ViewModels
             newCompany = new Company();
         }
 
-        private void DeleteCompany(int CompanyId) // Функция удаления пользователя.
+        private void DeleteCompany(int CompanyId) 
         {
             using (var context = new Rchtest1Context())
             {
@@ -77,7 +77,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand DeleteCompanyCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand DeleteCompanyCommand 
         {
             get
             {
@@ -88,11 +88,11 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private Company _editCompany; // Приватную переменную _newUser (для внутренних преобразований).
-        public Company editCompany // Публичную переменную newUser (для внешних преобразований).
+        private Company _editCompany;
+        public Company editCompany 
         {
             get { return _editCompany; }
-            set { _editCompany = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _editCompany = value; OnPropertyChanged(); }
         }
         private void UseCompany(int CompanyId)
         {
@@ -102,7 +102,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand UseCompanyCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand UseCompanyCommand
         {
             get
             {
@@ -113,7 +113,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void EditCompany(int CompanyId) // Функция удаления пользователя.
+        private void EditCompany(int CompanyId) 
         {
             using (var context = new Rchtest1Context())
             {
@@ -123,7 +123,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand EditCompanyCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand EditCompanyCommand 
         {
             get
             {

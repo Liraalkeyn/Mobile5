@@ -10,41 +10,41 @@ using Mobile5.Models;
 
 namespace Mobile5.ViewModels
 {
-    public class TypeCargoViewModel : INotifyPropertyChanged // Наш класс моделек.
+    public class TypeCargoViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged; // Создаем ивент.
+        public event PropertyChangedEventHandler? PropertyChanged; 
 
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "") // Функция вызова ивента.
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "") 
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private IEnumerable<TypeCargo> _TypeCargos; // Приватную переменную _workers (для внутренних преобразований).
-        public IEnumerable<TypeCargo> TypeCargos // Публичную переменную workers (для внешних преобразований).
+        private IEnumerable<TypeCargo> _TypeCargos; 
+        public IEnumerable<TypeCargo> TypeCargos 
         {
             get { return _TypeCargos; }
-            set { _TypeCargos = value; OnPropertyChanged(); } // Присваиваем внутренней переменной значение и вызываем ивент.
+            set { _TypeCargos = value; OnPropertyChanged(); }
         }
 
-        private void GetTypeCargo() // Присваиваем внешней переменной значение и преобразуем ее в лист.
+        private void GetTypeCargo()
         {
             using (var context = new Rchtest1Context()) { TypeCargos = context.TypeCargos.ToList(); }
         }
 
-        public TypeCargoViewModel() // Вызываем наши функции. 
+        public TypeCargoViewModel() 
         {
             newTypeCargo = new TypeCargo();
             GetTypeCargo();
         }
 
-        private TypeCargo _newTypeCargo; // Приватную переменную _newUser (для внутренних преобразований).
-        public TypeCargo newTypeCargo // Публичную переменную newUser (для внешних преобразований).
+        private TypeCargo _newTypeCargo;
+        public TypeCargo newTypeCargo
         {
             get { return _newTypeCargo; }
-            set { _newTypeCargo = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _newTypeCargo = value; OnPropertyChanged(); }
         }
 
-        public DelegateCommand AddTypeCargoCommand // Создаем команду для добавления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand AddTypeCargoCommand
         {
             get
             {
@@ -55,7 +55,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void AddTypeCargo() // Функция добавления пользователя.
+        private void AddTypeCargo() 
         {
             using (var context = new Rchtest1Context())
             {
@@ -66,7 +66,7 @@ namespace Mobile5.ViewModels
             newTypeCargo = new TypeCargo();
         }
 
-        private void DeleteTypeCargo(int TypeCargoId) // Функция удаления пользователя.
+        private void DeleteTypeCargo(int TypeCargoId) 
         {
             using (var context = new Rchtest1Context())
             {
@@ -77,7 +77,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand DeleteTypeCargoCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand DeleteTypeCargoCommand 
         {
             get
             {
@@ -88,11 +88,11 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private TypeCargo _editTypeCargo; // Приватную переменную _newUser (для внутренних преобразований).
-        public TypeCargo editTypeCargo // Публичную переменную newUser (для внешних преобразований).
+        private TypeCargo _editTypeCargo; 
+        public TypeCargo editTypeCargo
         {
             get { return _editTypeCargo; }
-            set { _editTypeCargo = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _editTypeCargo = value; OnPropertyChanged(); } 
         }
         private void UseTypeCargo(int TypeCargoId)
         {
@@ -102,7 +102,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand UseTypeCargoCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand UseTypeCargoCommand
         {
             get
             {
@@ -113,7 +113,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void EditTypeCargo(int TypeCargoId) // Функция удаления пользователя.
+        private void EditTypeCargo(int TypeCargoId) 
         {
             using (var context = new Rchtest1Context())
             {
@@ -123,7 +123,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand EditTypeCargoCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand EditTypeCargoCommand 
         {
             get
             {

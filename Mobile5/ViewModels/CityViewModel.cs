@@ -10,41 +10,41 @@ using Mobile5.Models;
 
 namespace Mobile5.ViewModels
 {
-    public class CityViewModel : INotifyPropertyChanged // Наш класс моделек.
+    public class CityViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged; // Создаем ивент.
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "") // Функция вызова ивента.
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "") 
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private IEnumerable<City> _cities; // Приватную переменную _workers (для внутренних преобразований).
-        public IEnumerable<City> cities // Публичную переменную workers (для внешних преобразований).
+        private IEnumerable<City> _cities;
+        public IEnumerable<City> cities
         {
             get { return _cities; }
-            set { _cities = value; OnPropertyChanged(); } // Присваиваем внутренней переменной значение и вызываем ивент.
+            set { _cities = value; OnPropertyChanged(); }
         }
 
-        private void GetCity() // Присваиваем внешней переменной значение и преобразуем ее в лист.
+        private void GetCity() 
         {
             using (var context = new Rchtest1Context()) { cities = context.Cities.ToList(); }
         }
 
-        public CityViewModel() // Вызываем наши функции. 
+        public CityViewModel()
         {
             newCity = new City();
             GetCity();
         }
 
-        private City _newCity; // Приватную переменную _newUser (для внутренних преобразований).
-        public City newCity // Публичную переменную newUser (для внешних преобразований).
+        private City _newCity; 
+        public City newCity 
         {
             get { return _newCity; }
-            set { _newCity = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _newCity = value; OnPropertyChanged(); } 
         }
 
-        public DelegateCommand AddCityCommand // Создаем команду для добавления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand AddCityCommand
         {
             get
             {
@@ -55,7 +55,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void AddCity() // Функция добавления пользователя.
+        private void AddCity()
         {
             using (var context = new Rchtest1Context())
             {
@@ -66,7 +66,7 @@ namespace Mobile5.ViewModels
             newCity = new City();
         }
 
-        private void DeleteCity(int CityId) // Функция удаления пользователя.
+        private void DeleteCity(int CityId)
         {
             using (var context = new Rchtest1Context())
             {
@@ -77,7 +77,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand DeleteCityCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand DeleteCityCommand
         {
             get
             {
@@ -88,11 +88,11 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private City _editCity; // Приватную переменную _newUser (для внутренних преобразований).
-        public City editCity // Публичную переменную newUser (для внешних преобразований).
+        private City _editCity; 
+        public City editCity 
         {
             get { return _editCity; }
-            set { _editCity = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _editCity = value; OnPropertyChanged(); } 
         }
         private void UseCity(int CityId)
         {
@@ -102,7 +102,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand UseCityCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand UseCityCommand 
         {
             get
             {
@@ -113,7 +113,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void EditCity(int CityId) // Функция удаления пользователя.
+        private void EditCity(int CityId)
         {
             using (var context = new Rchtest1Context())
             {
@@ -123,7 +123,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand EditCityCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand EditCityCommand 
         {
             get
             {

@@ -10,41 +10,41 @@ using Mobile5.Models;
 
 namespace Mobile5.ViewModels
 {
-    public class PositionViewModel : INotifyPropertyChanged // Наш класс моделек.
+    public class PositionViewModel : INotifyPropertyChanged 
     {
-        public event PropertyChangedEventHandler? PropertyChanged; // Создаем ивент.
+        public event PropertyChangedEventHandler? PropertyChanged; 
 
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "") // Функция вызова ивента.
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "") 
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private IEnumerable<Position> _Positions; // Приватную переменную _workers (для внутренних преобразований).
-        public IEnumerable<Position> Positions // Публичную переменную workers (для внешних преобразований).
+        private IEnumerable<Position> _Positions;
+        public IEnumerable<Position> Positions 
         {
             get { return _Positions; }
-            set { _Positions = value; OnPropertyChanged(); } // Присваиваем внутренней переменной значение и вызываем ивент.
+            set { _Positions = value; OnPropertyChanged(); }
         }
 
-        private void GetPosition() // Присваиваем внешней переменной значение и преобразуем ее в лист.
+        private void GetPosition()
         {
             using (var context = new Rchtest1Context()) { Positions = context.Positions.ToList(); }
         }
 
-        public PositionViewModel() // Вызываем наши функции. 
+        public PositionViewModel() 
         {
             newPosition = new Position();
             GetPosition();
         }
 
-        private Position _newPosition; // Приватную переменную _newUser (для внутренних преобразований).
-        public Position newPosition // Публичную переменную newUser (для внешних преобразований).
+        private Position _newPosition;
+        public Position newPosition 
         {
             get { return _newPosition; }
-            set { _newPosition = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _newPosition = value; OnPropertyChanged(); }
         }
 
-        public DelegateCommand AddPositionCommand // Создаем команду для добавления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand AddPositionCommand 
         {
             get
             {
@@ -55,7 +55,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void AddPosition() // Функция добавления пользователя.
+        private void AddPosition() 
         {
             using (var context = new Rchtest1Context())
             {
@@ -66,7 +66,7 @@ namespace Mobile5.ViewModels
             newPosition = new Position();
         }
 
-        private void DeletePosition(int PositionId) // Функция удаления пользователя.
+        private void DeletePosition(int PositionId) 
         {
             using (var context = new Rchtest1Context())
             {
@@ -77,7 +77,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand DeletePositionCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand DeletePositionCommand
         {
             get
             {
@@ -88,11 +88,11 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private Position _editPosition; // Приватную переменную _newUser (для внутренних преобразований).
-        public Position editPosition // Публичную переменную newUser (для внешних преобразований).
+        private Position _editPosition; 
+        public Position editPosition
         {
             get { return _editPosition; }
-            set { _editPosition = value; OnPropertyChanged(); } // Присваиваем внешней переменной значение и преобразуем ее в лист.
+            set { _editPosition = value; OnPropertyChanged(); } 
         }
         private void UsePosition(int PositionId)
         {
@@ -102,7 +102,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand UsePositionCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand UsePositionCommand
         {
             get
             {
@@ -113,7 +113,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        private void EditPosition(int PositionId) // Функция удаления пользователя.
+        private void EditPosition(int PositionId) 
         {
             using (var context = new Rchtest1Context())
             {
@@ -123,7 +123,7 @@ namespace Mobile5.ViewModels
             }
         }
 
-        public DelegateCommand EditPositionCommand // Создаем команду для удаления пользователя, вызывающую функцию добавления пользователя.
+        public DelegateCommand EditPositionCommand 
         {
             get
             {
